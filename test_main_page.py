@@ -39,7 +39,7 @@ def test_guest_can_see_product_in_basket_opened_from_main_page(browser):
     page.open()
     page.go_to_basket_page()
     page_basket = BasketPage(browser, browser.current_url)
-    page_basket.product_should_be_not_in_basket()
+    page_basket.guest_should_see_empty_text()
 
 
 

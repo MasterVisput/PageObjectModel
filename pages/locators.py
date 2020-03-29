@@ -24,6 +24,7 @@ class BasePageLocators():
 
 class BasketPageLocators():
     PRODUCT_IN_BASKET = (By.CSS_SELECTOR, '.col-sm-4>h3>a')
+    TEXT_BASKET_EMPTY = (By.XPATH, '//p[contains(text(), "Your basket is empty.")]')
 
 
 

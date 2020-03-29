@@ -1,4 +1,5 @@
 from .pages.product_page import ProductPage
+from .pages.basket_page import BasketPage
 from time import sleep
 from .pages.main_page import MainPage
 from .pages.login_page import LoginPage
@@ -79,10 +80,11 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page_login = LoginPage(browser, browser.current_url)
     page_login.should_be_login_form()
 
-def test_guest_can_see_product_in_basket_opened_from_main_page(browser):
-    link = 'http://selenium1py.pythonanywhere.com/'
-    page = MainPage(browser, link)
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    link = 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/'
+    page = ProductPage(browser, link)
     page.open()
     page.go_to_basket_page()
     page_basket = BasketPage(browser, browser.current_url)
     page_basket.product_should_be_not_in_basket()
+    page_basket.guest_should_see_empty_text()
