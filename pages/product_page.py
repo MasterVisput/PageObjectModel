@@ -15,7 +15,7 @@ class ProductPage(BasePage):
     def product_name_should_be_in_basket(self):
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
         product_name_in_basket = self.browser.find_element(*ProductPageLocators.MESSAGE_ABOUT_ADDING).text
-        assert product_name in product_name_in_basket, 'Product name not in basket'
+        assert product_name == product_name_in_basket, 'Product name not in basket'
 
 
     def product_cost_should_be_in_basket(self):
